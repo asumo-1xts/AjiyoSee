@@ -8,6 +8,8 @@ on:
 jobs:
   check-open-close:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       # gh-actions ブランチを最初に取得（Pages更新先）
@@ -46,20 +48,14 @@ jobs:
           fi
           echo "flag_skip=$FLAG_SKIP" >> $GITHUB_OUTPUT
 
-      # uvでPythonをセットアップ
-      - name: Set up Python
-        if: steps.skip.outputs.flag_skip != 'true'
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: "pyproject.toml"
+      # uvでPython環境をセットアップ
       - name: Install uv
-        if: steps.skip.outputs.flag_skip != 'true'
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: true
+          working-directory: script
+          activate-environment: "true"
       - name: Install the project
-        if: steps.skip.outputs.flag_skip != 'true'
-        run: uv sync --locked --all-extras --dev
+        run: uv sync --locked --all-extras --dev --project script
 
       # Pythonスクリプト実行（get → filter → check）
       - name: Run Python scripts
