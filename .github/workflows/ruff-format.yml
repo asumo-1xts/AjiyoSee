@@ -1,4 +1,4 @@
-name: Ruff CI/CD
+name: Ruff Format
 
 on:
   pull_request:
@@ -8,10 +8,10 @@ on:
       - closed
     paths:
       - "script/**"
-      - ".github/workflows/ruff.yml"
+      - ".github/workflows/ruff-format.yml"
 
 jobs:
-  run-ruff:
+  ruff-format:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +21,7 @@ jobs:
           ref: main
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - name: Run Ruff Linter
+      - name: Run Ruff Formatter
         uses: astral-sh/ruff-action@v3
         with:
           args: "format"
