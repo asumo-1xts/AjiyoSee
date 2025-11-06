@@ -21,4 +21,3 @@ jobs:
         with:
           args: "check"
           src: "script"
-          version-file: "script/pyproject.toml"
