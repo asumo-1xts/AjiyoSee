@@ -1,4 +1,21 @@
-# AjiyoSee
+# 現在のあじよしの営業状況
 
-現在のあじよし：<!--RESULT_START-->⚠️ UNKNOWN [X API ERROR]<!--RESULT_END-->
-最終更新日時　：<!--DATE_START-->2025-11-06 13:50 JST<!--DATE_END-->
+**<!--RESULT_START-->⚠️ UNKNOWN [X API ERROR]<!--RESULT_END-->** （更新：<!--DATE_START-->2025-11-06 13:50 JST<!--DATE_END-->）
+
+正確な情報は[あじよし公式X](https://x.com/ajiyoshiver2)をご確認ください。
+
+## Note
+
+平日の17時頃に開店または閉店をチェックして更新します。
+
+その後、20時半頃に完売か否かをチェックして更新します。
+
+| 開店       | 閉店       | 完売         | 不明       |
+|:----------:|:----------:|:------------:|:----------:|
+| ⭕ OPEN    | ❌ CLOSE   | 🚫 SOLD OUT  | ❓ UNKNOWN |
+
+## ⚠️ UNKNOWN [X API ERROR]
+
+このエラーはX APIの無料枠の利用制限によるものです。
+
+有料枠をご提供いただける大富豪の方はご連絡ください。
