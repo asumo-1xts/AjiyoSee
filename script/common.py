@@ -3,6 +3,9 @@
 from datetime import datetime, timezone, timedelta
 
 
+
+
+
 def write_result(code: int):
     """結果コードを result.txt に書き込む"""
     path = "result.txt"
