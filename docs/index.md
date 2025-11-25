@@ -1,6 +1,6 @@
 # 現在のあじよしの営業状況
 
-**<!--RESULT_START-->⭕ OPEN<!--RESULT_END-->** （更新：<!--DATE_START-->2025-11-25 17:15 JST<!--DATE_END-->）
+**<!--RESULT_START-->⭕ OPEN<!--RESULT_END-->** （更新：<!--DATE_START-->2025-11-25 20:38 JST<!--DATE_END-->）
 
 正確な情報は[あじよし公式X](https://x.com/ajiyoshiver2)をご確認ください。
 
