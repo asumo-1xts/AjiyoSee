@@ -25,7 +25,7 @@ def main():
                     if "お休み" in text:
                         result = 0
                         break
-                    elif "メニュー" in text:
+                    elif "メニュー" in text or "オープン" in text:
                         result = 1
                         break
                     elif "完売" in text:
