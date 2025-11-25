@@ -1,6 +1,6 @@
 theme: jekyll-theme-slate
 title: AjiyoSee
-description: つくば市の飲食店『あじよし』の営業状況をざっくりリアルタイムで可視化する非公認プロジェクト。
+description: つくば市の飲食店『あじよし』の営業状況をざっくりリアルタイムで可視化する公認プロジェクト。
 url: "https://asumo-1xts.github.io/AjiyoSee/"
 image: "https://github.com/asumo-1xts/AjiyoSee/blob/gh-actions/docs/assets/card.jpg?raw=true"
 show_downloads: true
