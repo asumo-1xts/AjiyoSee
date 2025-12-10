@@ -8,6 +8,7 @@ import csv
 import requests
 from dotenv import load_dotenv
 
+
 OUTPUT_FILE = "posts_latest.csv"
 RESULT_FILE = "result.txt"
 SEARCH_KEYWORD = "from:ajiyoshiver2"
