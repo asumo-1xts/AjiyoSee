@@ -12,29 +12,32 @@ jobs:
       contents: write
 
     steps:
-      # gh-actions ブランチを最初に取得（Pages更新先）
+      # gh-actionsブランチを最初に取得（Pagesの更新先）
       - name: Checkout gh-actions branch
         uses: actions/checkout@v5
         with:
           ref: gh-actions
           fetch-depth: 0
 
-      # result.txt を一時ディレクトリへコピー
-      - name: Backup result.txt
+      # テキストファイルを一時ディレクトリへコピー
+      - name: Backup text files
         run: |
-          mkdir -p /tmp/ajiyo
-          cp result.txt /tmp/ajiyo/result.txt
+          mkdir -p /tmp/txt
+          cp result.txt /tmp/txt/result.txt
+          cp status.txt /tmp/txt/status.txt
 
-      # main ブランチをチェックアウト
+      # mainブランチをチェックアウト
       - name: Checkout main branch
         uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
 
-      # 一時保存していた result.txt を戻す
-      - name: Restore result.txt
-        run: cp /tmp/ajiyo/result.txt result.txt
+      # 一時保存していたテキストファイルを戻す
+      - name: Restore text files
+        run: |
+          cp /tmp/txt/result.txt result.txt
+          cp /tmp/txt/status.txt status.txt
 
       # 土日はスキップ（flag_skipを設定）
       - name: Check skip conditions
@@ -67,33 +70,31 @@ jobs:
           uv run script/filter_posts.py
           uv run script/check_status.py
 
-      # 更新された result.txt を一時ディレクトリへコピー
-      - name: Save updated result.txt
-        run: cp result.txt /tmp/ajiyo/result.txt
+      # 更新されたテキストファイルを一時ディレクトリへコピー
+      - name: Save updated text files
+        run: |
+          cp result.txt /tmp/txt/result.txt
+          cp status.txt /tmp/txt/status.txt
 
-      # gh-actions ブランチに戻る
+      # gh-actionsブランチに戻る
       - name: Checkout gh-actions branch again
         uses: actions/checkout@v5
         with:
           ref: gh-actions
           fetch-depth: 0
 
-      # result.txt を復元
-      - name: Restore final result.txt
-        run: cp /tmp/ajiyo/result.txt result.txt
+      # テキストファイルを復元
+      - name: Restore final text files
+        run: |
+          cp /tmp/txt/result.txt result.txt
+          cp /tmp/txt/status.txt status.txt
 
-      # /docs/index.md の営業状況を更新
+      # /docs/index.mdの営業状況を更新
       - name: Update Pages
         id: update_pages
         run: |
           RESULT=$(cat result.txt)
-          case "$RESULT" in
-            0) STATUS="❌ CLOSE" ;;
-            1) STATUS="⭕ OPEN" ;;
-            2) STATUS="🚫 SOLD OUT" ;;
-            3) STATUS="⚠️ UNKNOWN \[X API ERROR\]" ;;
-            *) STATUS="❓ UNKNOWN" ;;
-          esac
+          STATUS=$(cat status.txt)
 
           DATE=$(TZ='Asia/Tokyo' date '+%Y-%m-%d %H:%M %Z')
           echo "[Actions] STATUS=$STATUS DATE=$DATE"

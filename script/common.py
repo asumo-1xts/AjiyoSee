@@ -3,12 +3,11 @@
 from datetime import datetime, timezone, timedelta
 
 
-def write_result(code: int):
-    """結果コードを result.txt に書き込む"""
-    path = "result.txt"
+def write_txt(content: str, path: str):
+    """結果コードを指定したファイルに書き込む"""
     with open(path, "w", encoding="utf-8") as f:
-        f.write(str(code))
-    print(f"[common.py] result.txtを更新: {code}")
+        f.write(str(content))
+    print(f"[common.py] {path}を更新: {content}")
 
 
 def read_result(path: str = "result.txt") -> int:
