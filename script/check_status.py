@@ -1,13 +1,14 @@
 """
 check_openclose.py
-filter_posts.pyの結果から営業状況を判定し、result.txtを更新。
+filter_posts.pyの結果から営業状況を判定し、テキストファイルを更新。
 """
 
 import csv
-from common import write_result
+from common import write_txt
 
 INPUT_FILE = "posts_filtered.csv"
 RESULT_FILE = "result.txt"
+STATUS_FILE = "status.txt"
 
 
 def main():
@@ -38,7 +39,16 @@ def main():
         print(f"[check_status.py] {INPUT_FILE}が見つかりません: {e}")
         result = 3  # X API ERROR
 
-    write_result(result)
+    write_txt(str(result), RESULT_FILE)
+
+    status_text = {
+        0: "❌ CLOSE",
+        1: "⭕ OPEN",
+        2: "🚫 SOLD OUT",
+        3: "⚠️ UNKNOWN [X API ERROR]",
+        4: "❓ UNKNOWN",
+    }
+    write_txt(status_text.get(result), STATUS_FILE)
 
 
 if __name__ == "__main__":
