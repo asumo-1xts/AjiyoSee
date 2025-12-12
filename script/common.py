@@ -1,8 +1,5 @@
 """共通関数モジュール"""
 
-
-
-
 from datetime import datetime, timedelta, timezone
 
 
