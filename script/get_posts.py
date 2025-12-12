@@ -3,11 +3,11 @@ get_posts.py
 X APIを叩いて直近の投稿を取得し、posts_latest.csvに保存する。
 """
 
-import os
 import csv
+import os
+
 import requests
 from dotenv import load_dotenv
-
 
 OUTPUT_FILE = "posts_latest.csv"
 RESULT_FILE = "result.txt"

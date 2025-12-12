@@ -4,7 +4,8 @@ filter_posts.py
 """
 
 import csv
-from common import utc_to_jst, today_jst
+
+from common import today_jst, utc_to_jst
 
 INPUT_FILE = "posts_latest.csv"
 OUTPUT_FILE = "posts_filtered.csv"
