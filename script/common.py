@@ -1,6 +1,9 @@
 """共通関数モジュール"""
 
-from datetime import datetime, timezone, timedelta
+
+
+
+from datetime import datetime, timedelta, timezone
 
 
 def write_txt(content: str, path: str):
