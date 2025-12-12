@@ -12,24 +12,25 @@ on:
 
 jobs:
   ruff-format:
-    if: github.event.pull_request.merged == true
+  if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Check out main branch
         uses: actions/checkout@v5
         with:
-          ref: main
+          ref: dev
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
       - name: Run Ruff Formatter
         uses: astral-sh/ruff-action@v3
         with:
+          version: ">=0.14.0"
           args: "format"
-          src: "script"
+          src: "./script"
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
-          branch: main
+          branch: dev
           commit_message: "auto: Format code with Ruff"
           commit_user_name: "gh-actions[bot]"
           commit_user_email: "action@github.com"
