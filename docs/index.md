@@ -1,6 +1,6 @@
 # 現在のあじよしの営業状況
 
-**<!--RESULT_START-->⚠️ UNKNOWN [X API ERROR]<!--RESULT_END-->** （更新：<!--DATE_START-->2025-12-12 20:40 JST<!--DATE_END-->）
+**<!--RESULT_START-->⚠️ UNKNOWN [X API ERROR]<!--RESULT_END-->** （更新：<!--DATE_START-->2025-12-13 16:50 JST<!--DATE_END-->）
 
 正確な情報は[あじよし公式X](https://x.com/ajiyoshiver2)をご確認ください。
 
