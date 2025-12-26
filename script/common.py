@@ -1,6 +1,6 @@
 """共通関数モジュール"""
 
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 
 def write_txt(content: str, path: str):
@@ -27,7 +27,7 @@ def utc_to_jst(dt_utc_str: str) -> datetime:
     return dt_utc.astimezone(timezone(timedelta(hours=9)))
 
 
-def today_jst() -> datetime.date:
+def today_jst() -> date:
     """今日の日付（JST）を返す"""
     return (
         datetime.now(timezone.utc)
