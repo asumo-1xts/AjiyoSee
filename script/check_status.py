@@ -5,7 +5,9 @@ filter_posts.pyの結果から営業状況を判定し、テキストファイ�
 
 import csv
 
-from common import write_txt
+from common import (
+    write_txt,
+)
 
 INPUT_FILE = "docs/posts_filtered.csv"
 RESULT_FILE = "docs/result.txt"
@@ -14,7 +16,10 @@ STATUS_FILE = "docs/status.txt"
 
 def main():
     try:
-        with open(INPUT_FILE, encoding="utf-8") as f:
+        with open(
+            INPUT_FILE,
+            encoding="utf-8",
+        ) as f:
             reader = list(csv.reader(f))
             if len(reader) == 1:  # ヘッダーしか無い場合
                 print("[check_status.py] 今日はポストがありません。")
@@ -41,7 +46,10 @@ def main():
         print(e)
         result = 4  # X API ERROR
 
-    write_txt(str(result), RESULT_FILE)
+    write_txt(
+        str(result),
+        RESULT_FILE,
+    )
 
     status_text = {
         0: "⭕ OPEN",
@@ -50,7 +58,10 @@ def main():
         3: "❓ UNKNOWN",
         4: "⚠️ X-API ERROR",
     }
-    write_txt(status_text.get(result), STATUS_FILE)
+    write_txt(
+        status_text.get(result),
+        STATUS_FILE,
+    )
 
 
 if __name__ == "__main__":
