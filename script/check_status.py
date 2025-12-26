@@ -15,6 +15,7 @@ STATUS_FILE = "docs/status.txt"
 
 
 def main():
+    result = 3  # デフォルト値をUNKNOWNに設定しておく
     try:
         with open(
             INPUT_FILE,
@@ -59,7 +60,7 @@ def main():
         4: "⚠️ X-API ERROR",
     }
     write_txt(
-        status_text.get(result),
+        status_text.get(result, "❓ UNKNOWN"),
         STATUS_FILE,
     )
 
