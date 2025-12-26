@@ -1,0 +1,16 @@
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "editor.formatOnSave": true,
+  "extensions.ignoreRecommendations": false,
+  "python.analysis.typeCheckingMode": "standard",
+  "ruff.configuration": "script/pyproject.toml",
+  "ruff.path": [
+    "/home/asumo/.local/bin/ruff"
+  ]
+}
