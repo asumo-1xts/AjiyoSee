@@ -12,7 +12,7 @@ export default defineConfig({
     ],
   },
   head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["link", { rel: "icon", href: "./favicon.ico" }],
     ["meta", { property: "og:author", content: "aSumo" }],
     [
       "meta",
