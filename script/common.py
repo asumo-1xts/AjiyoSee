@@ -16,7 +16,7 @@ def read_result(path: str = "result.txt") -> int:
         with open(path, encoding="utf-8") as f:
             return int(f.read().strip())
     except Exception:
-        return 4  # UNKNOWN
+        return 3  # UNKNOWN
 
 
 def utc_to_jst(dt_utc_str: str) -> datetime:

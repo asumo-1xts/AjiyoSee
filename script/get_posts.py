@@ -9,8 +9,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
-OUTPUT_FILE = "posts_latest.csv"
-RESULT_FILE = "result.txt"
+OUTPUT_FILE = "docs/posts_latest.csv"
 SEARCH_KEYWORD = "from:ajiyoshiver2"
 MAX_RESULTS = 10
 
@@ -40,7 +39,8 @@ def main():
         print(f"[get_posts.py] {OUTPUT_FILE}を更新しました。")
 
     except Exception as e:
-        print(f"[get_posts.py] X APIエラー: {e}")
+        print("[get_posts.py] X APIエラー")
+        print(e)
 
 
 if __name__ == "__main__":

@@ -7,8 +7,8 @@ import csv
 
 from common import today_jst, utc_to_jst
 
-INPUT_FILE = "posts_latest.csv"
-OUTPUT_FILE = "posts_filtered.csv"
+INPUT_FILE = "docs/posts_latest.csv"
+OUTPUT_FILE = "docs/posts_filtered.csv"
 
 
 def main():

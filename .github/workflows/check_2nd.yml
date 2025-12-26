@@ -12,37 +12,18 @@ jobs:
       contents: write
 
     steps:
-      # まずgh-actionsブランチを取得
-      - name: Checkout gh-actions branch
-        uses: actions/checkout@v5
-        with:
-          ref: gh-actions
-          fetch-depth: 0
-
-      # テキストファイルを一時ディレクトリにコピー
-      - name: Backup text files
-        run: |
-          mkdir -p /tmp/txt
-          cp result.txt /tmp/txt/result.txt
-          cp status.txt /tmp/txt/status.txt
-
       # mainブランチをチェックアウト
       - name: Checkout main branch
         uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
-      # 一時保存していたテキストファイルを戻す
-      - name: Restore text files
-        run: |
-          cp /tmp/txt/result.txt result.txt
-          cp /tmp/txt/status.txt status.txt
-
-      # result.txtを読み込む
+      # docs/result.txtを読み込む
       - name: Read result file
         id: read_result_1st
-        run: echo "result=$(cat result.txt)" >> $GITHUB_OUTPUT
+        run: echo "result=$(cat docs/result.txt)" >> $GITHUB_OUTPUT
 
       # 土日またはOPENでない場合にはスキップ
       - name: Check skip conditions
@@ -51,9 +32,9 @@ jobs:
           day=$(TZ=Asia/Tokyo date +%u)
           FLAG_SKIP=false
           if [ "$day" -ge 6 ] || \
-             [ "${{ steps.read_result_1st.outputs.result }}" = "0" ]; then
+             [ "${{ steps.read_result_1st.outputs.result }}" != "0" ]; then
             FLAG_SKIP=true
-            echo "[Actions] Skipping workflow."
+            echo "[check_2nd.yml] Skipping workflow."
           fi
           echo "flag_skip=$FLAG_SKIP" >> $GITHUB_OUTPUT
 
@@ -75,48 +56,14 @@ jobs:
           uv run script/get_posts.py
           uv run script/filter_posts.py
           uv run script/check_status.py
-
-      # 新しいテキストファイルを再度/tmpにコピー
-      - name: Save updated text files
-        run: |
-          cp result.txt /tmp/txt/result.txt
-          cp status.txt /tmp/txt/status.txt
-
-      # gh-actionsブランチに戻る
-      - name: Checkout gh-actions branch again
-        uses: actions/checkout@v5
-        with:
-          ref: gh-actions
-          fetch-depth: 0
-
-      # テキストファイルを戻す
-      - name: Restore final text files
-        run: |
-          cp /tmp/txt/result.txt result.txt
-          cp /tmp/txt/status.txt status.txt
-
-      # docs/index.mdの更新
-      - name: Update Pages
-        id: update_pages
-        run: |
-          RESULT=$(cat result.txt)
-          STATUS=$(cat status.txt)
-
-          DATE=$(TZ='Asia/Tokyo' date '+%Y-%m-%d %H:%M %Z')
-          echo "[Actions] STATUS=$STATUS DATE=$DATE"
-
-          sed -z -i "s|<!--RESULT_START-->.*<!--RESULT_END-->|<!--RESULT_START-->$STATUS<!--RESULT_END-->|" docs/index.md
-          sed -z -i "s|<!--DATE_START-->.*<!--DATE_END-->|<!--DATE_START-->$DATE<!--DATE_END-->|" docs/index.md
-
-          echo "status=$STATUS" >> $GITHUB_OUTPUT
-          echo "date=$DATE" >> $GITHUB_OUTPUT
+          uv run script/update_pages.py
 
       # コミット＆プッシュ
       - name: Commit new Pages status
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
-          branch: gh-actions
-          commit_message: "auto: あじよしは現在 ${{ steps.update_pages.outputs.status }}"
+          branch: main
+          commit_message: "あじよしの営業状況：${{ steps.update_pages.outputs.status }}"
           commit_user_name: "gh-actions[bot]"
           commit_user_email: "action@github.com"
           commit_author: "gh-actions[bot] <action@github.com>"
