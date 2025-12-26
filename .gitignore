@@ -1,2 +1,14 @@
-script/.venv/
-.ssh/
+.venv/*
+script/__pycache__/*
+
+.ssh/*
+.env
+
+.yarn/unplugged/*
+.yarn/releases/*
+.yarn/*.gz
+*.pnp.*
+node_modules/*
+
+docs/.vitepress/cache/*
+docs/.vitepress/dist/*

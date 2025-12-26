@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "vitepress": "^2.0.0-alpha.15",
+    "vue": "^3.5.26"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/.vitepress/**/*.ts",
+    "**/.vitepress/**/*.mts",
+    "**/.vitepress/**/*.vue"
+  ],
+  "name": "ajiyosee",
+  "packageManager": "yarn@4.9.2",
+  "scripts": {
+    "build": "vitepress build docs",
+    "dev": "vitepress dev docs",
+    "preview": "vitepress preview docs"
+  }
+}
