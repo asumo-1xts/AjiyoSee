@@ -1,4 +1,7 @@
 {
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
@@ -6,11 +9,11 @@
     },
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
   "extensions.ignoreRecommendations": false,
   "python.analysis.typeCheckingMode": "standard",
-  "ruff.configuration": "script/pyproject.toml",
-  "ruff.path": [
-    "/home/asumo/.local/bin/ruff"
-  ]
+  "ruff.configuration": "pyproject.toml"
 }
