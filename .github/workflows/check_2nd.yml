@@ -46,8 +46,9 @@ jobs:
       - name: Install the project
         run: uv sync --all-extras --dev
 
-      # Pythonスクリプト実行（get → filter → check）
+      # Pythonスクリプト実行
       - name: Run Python scripts
+        id: run_scripts
         if: steps.skip.outputs.flag_skip != 'true'
         env:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
@@ -62,7 +63,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          commit_message: "あじよしの営業状況：${{ steps.update_pages.outputs.status }}"
+          commit_message: "あじよしの営業状況：${{ steps.run_scripts.outputs.status }}"
           commit_user_name: "gh-actions[bot]"
           commit_user_email: "action@github.com"
           commit_author: "gh-actions[bot] <action@github.com>"

@@ -23,13 +23,10 @@ with open("docs/index.md", encoding="utf-8") as f:
 content = re.sub(r"text: \[.*\]", f"text: [{STATUS}]", content)
 content = re.sub(r"tagline: .* 更新", f"tagline: {DATE} 更新", content)
 
-
 with open("docs/index.md", "w", encoding="utf-8") as f:
     f.write(content)
 
 # GITHUB_OUTPUT への出力
-github_output = os.environ.get("GITHUB_OUTPUT")
-if github_output:
-    with open(github_output, "a", encoding="utf-8") as f:
-        f.write(f"status={STATUS}\n")
-        f.write(f"date={DATE}\n")
+with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+    f.write(f"status={STATUS}\n")
+    f.write(f"date={DATE}\n")
