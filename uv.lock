@@ -6,14 +6,18 @@ requires-python = ">=3.14"
 name = "ajiyosee"
 version = "0.1.0"
 source = { virtual = "." }
-dependencies = [
+
+[package.dev-dependencies]
+dev = [
     { name = "dotenv" },
     { name = "pytz" },
     { name = "requests" },
 ]
 
 [package.metadata]
-requires-dist = [
+
+[package.metadata.requires-dev]
+dev = [
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "pytz", specifier = ">=2025.2" },
     { name = "requests", specifier = ">=2.32.5" },
