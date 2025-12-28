@@ -1,11 +1,10 @@
 {
   "devDependencies": {
+    "prettier": "^3.7.4",
     "vitepress": "^2.0.0-alpha.15",
     "vue": "^3.5.26"
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "**/.vitepress/**/*.ts",
     "**/.vitepress/**/*.mts",
@@ -16,6 +15,7 @@
   "scripts": {
     "build": "vitepress build docs",
     "dev": "vitepress dev docs",
+    "format": "yarn prettier --config .vscode/.prettierrc.json --write .github/workflows .vscode *.json && rm -rf node_modules",
     "preview": "vitepress preview docs"
   }
 }
