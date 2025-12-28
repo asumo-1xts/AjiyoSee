@@ -15,5 +15,9 @@
   "editor.formatOnSave": true,
   "extensions.ignoreRecommendations": false,
   "python.analysis.typeCheckingMode": "standard",
-  "ruff.configuration": "pyproject.toml"
+  "ruff.configuration": "pyproject.toml",
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  }
 }
