@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "charliermarsh.ruff",
-    "arcanis.vscode-zipfs"
-  ]
+  "recommendations": ["charliermarsh.ruff", "arcanis.vscode-zipfs"]
 }

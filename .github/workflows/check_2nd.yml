@@ -2,7 +2,7 @@ name: Check SOLD OUT
 
 on:
   schedule:
-    - cron: "30 11 * * *" # JST 20:30
+    - cron: '30 11 * * *' # JST 20:30
   workflow_dispatch:
 
 jobs:
@@ -48,7 +48,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          activate-environment: "true"
+          activate-environment: 'true'
       - name: Install the project
         run: uv sync --all-extras --dev
 
@@ -67,8 +67,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          push_options: "--force"
-          commit_message: "あじよしの営業状況：${{ steps.run_scripts.outputs.status }}"
-          commit_user_name: "gh-actions[bot]"
-          commit_user_email: "action@github.com"
-          commit_author: "gh-actions[bot] <action@github.com>"
+          push_options: '--force'
+          commit_message: 'あじよしの営業状況：${{ steps.run_scripts.outputs.status }}'
+          commit_user_name: 'gh-actions[bot]'
+          commit_user_email: 'action@github.com'
+          commit_author: 'gh-actions[bot] <action@github.com>'
