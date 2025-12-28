@@ -19,6 +19,16 @@ jobs:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
+      - name: Reset if previous commit is by action@github.com
+        run: |
+          PREV_EMAIL=$(git log -1 --pretty=format:'%ae' | tail -n 1)
+          if [ "$PREV_EMAIL" = "action@github.com" ]; then
+            echo "[Actions] Previous commit by action@github.com, running git reset --hard HEAD~1"
+            git reset --hard HEAD~1
+          else
+            echo "[Actions] Previous commit not by action@github.com, skipping reset"
+          fi
+
       - name: Read result file
         id: read_result_1st
         run: echo "result=$(cat docs/result.txt)" >> $GITHUB_OUTPUT
@@ -57,6 +67,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
+          push_options: "--force"
           commit_message: "あじよしの営業状況：${{ steps.run_scripts.outputs.status }}"
           commit_user_name: "gh-actions[bot]"
           commit_user_email: "action@github.com"
