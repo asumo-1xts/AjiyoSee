@@ -12,7 +12,6 @@ jobs:
       contents: write
 
     steps:
-      # mainブランチをチェックアウト
       - name: Checkout main branch
         uses: actions/checkout@v5
         with:
@@ -20,7 +19,6 @@ jobs:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
-      # 土日はスキップ（flag_skipを設定）
       - name: Check skip conditions
         id: skip
         run: |
@@ -32,7 +30,6 @@ jobs:
           fi
           echo "flag_skip=$FLAG_SKIP" >> $GITHUB_OUTPUT
 
-      # uvでPython環境をセットアップ
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
@@ -40,7 +37,6 @@ jobs:
       - name: Install the project
         run: uv sync --all-extras --dev
 
-      # Pythonスクリプト実行
       - name: Run Python scripts
         id: run_scripts
         if: steps.skip.outputs.flag_skip != 'true'
@@ -52,7 +48,6 @@ jobs:
           uv run script/check_status.py
           uv run script/update_pages.py
 
-      # コミット＆プッシュ
       - name: Commit new Pages status
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
