@@ -34,6 +34,6 @@ jobs:
         with:
           branch: main
           commit_message: 'style: Format code with Prettier'
-          commit_user_name: 'github-actions[bot]'
+          commit_user_name: 'gh-actions[bot]'
           commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
