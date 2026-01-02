@@ -5,7 +5,7 @@ layout: home
 hero:
   name: あじよしの営業状況
   text: [⚠️ X-API ERROR]
-  tagline: 2025-12-28 09:37 JST 更新
+  tagline: 2026-01-02 16:54 JST 更新
   actions:
     - theme: brand
       text: あじよし公式X
