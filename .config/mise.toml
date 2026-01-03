@@ -15,3 +15,33 @@ usage = '''
 arg "<arg>" default=""
 '''
 description = "Convert images to webp"
+
+[tasks."install"]
+run = '''
+yarn install
+'''
+alias = "yi"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Installs dependencies using Yarn."
+
+[tasks."dev"]
+run = '''
+yarn dev
+'''
+alias = "yd"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Starts the development server."
+
+[tasks."build"]
+run = '''
+yarn build
+'''
+alias = "yb"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Builds the project for production."
