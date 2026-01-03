@@ -10,8 +10,7 @@ AjiyoSee
 
 [![uv](https://img.shields.io/badge/Built_with-uv-%23DE5FE9?style=flat&logo=uv&logoColor=white)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/badge/Lint_and_format_with-Ruff-%23D7FF64?style=flat&logo=ruff&logoColor=white)](https://github.com/astral-sh/ruff)
-[![X-API](https://img.shields.io/badge/X_API-%23000000.svg?logo=X&logoColor=white)](https://developer.x.com/ja/docs/x-api)
-[![ESP](https://img.shields.io/badge/ESP8266-E7352C?logo=Espressif&logoColor=white)](https://www.espressif.com/ja-jp)
+[![VitePress](https://img.shields.io/badge/Generate_with-VitePress-5C73E7?logo=vitepress&logoColor=white)](https://vitepress.dev/)
 [![MIT](https://img.shields.io/badge/License-MIT-green)](/LICENSE)
 
 ***「あじよし今日やってんのかな…」***
