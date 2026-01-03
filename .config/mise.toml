@@ -1,3 +1,17 @@
 [tools]
 node = "25.0.0"
 yarn = "4.9.2"
+
+[tasks."2webp"]
+run = '''
+cd docs
+for f in *.${usage_arg}; do 
+    ffmpeg -hide_banner -loglevel error -y -i "$f" \
+    "${f%.${usage_arg}}.webp" && rm "$f"; 
+done
+'''
+alias = "2w"
+usage = '''
+arg "<arg>" default=""
+'''
+description = "Convert images to webp"
