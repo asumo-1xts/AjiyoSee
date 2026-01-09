@@ -4,8 +4,8 @@ from datetime import datetime
 
 import pytz
 
-RESULT_FILE = "docs/result.txt"
-STATUS_FILE = "docs/status.txt"
+RESULT_FILE = "docs/public/result.txt"
+STATUS_FILE = "docs/public/status.txt"
 
 # ファイルから値を取得
 with open(STATUS_FILE, encoding="utf-8") as f:
