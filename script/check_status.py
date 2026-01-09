@@ -10,8 +10,8 @@ from common import (
 )
 
 INPUT_FILE = "docs/posts_filtered.csv"
-RESULT_FILE = "docs/result.txt"
-STATUS_FILE = "docs/status.txt"
+RESULT_FILE = "docs/public/result.txt"
+STATUS_FILE = "docs/public/status.txt"
 
 
 def main():
