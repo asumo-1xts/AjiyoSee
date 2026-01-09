@@ -14,11 +14,12 @@
   },
   "editor.formatOnSave": true,
   "extensions.ignoreRecommendations": false,
+  "prettier.configPath": ".vscode/.prettierrc.json",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "python.analysis.typeCheckingMode": "standard",
   "ruff.configuration": "pyproject.toml",
   "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
+    "**/.pnp.*": true,
+    "**/.yarn": true
+  }
 }
