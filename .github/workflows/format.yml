@@ -62,3 +62,27 @@ jobs:
           commit_user_name: 'gh-actions[bot]'
           commit_user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+
+  clang-format:
+    needs: ruff-format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      - name: Run clang-format
+        run: |
+          sudo apt install clang-format -y
+          clang-format -i -style=file:".clang-format" */src/**/*.h  
+          clang-format -i -style=file:".clang-format" */src/**/*.c
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+        with:
+          branch: main
+          commit_message: 'style: Format code with clang-format'
+          commit_user_name: 'gh-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
