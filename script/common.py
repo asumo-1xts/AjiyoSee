@@ -21,7 +21,8 @@ def utc_to_jst(dt_utc_str: str) -> datetime:
 def today_jst() -> date:
     """今日の日付（JST）を返す"""
     return (
-        datetime.now(timezone.utc)
+        datetime
+        .now(timezone.utc)
         .astimezone(timezone(timedelta(hours=9)))
         .date()
     )
