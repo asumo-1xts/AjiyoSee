@@ -15,4 +15,3 @@ hero:
       text: What's this?
       link: /about
 ---
-
