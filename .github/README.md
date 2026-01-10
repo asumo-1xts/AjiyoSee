@@ -6,15 +6,10 @@ AjiyoSee
 
 [![Check OPEN/CLOSE](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/check_1st.yml/badge.svg)](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/check_1st.yml)
 [![Check SOLD OUT](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/check_2nd.yml/badge.svg)](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/check_2nd.yml)
-[![GitHub Pages](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/deploy.yml/badge.svg)](https://github.com/asumo-1xts/AjiyoSee/actions/workflows/deploy.yml)
-
-[![uv](https://img.shields.io/badge/Built_with-uv-%23DE5FE9?style=flat&logo=uv&logoColor=white)](https://github.com/astral-sh/uv)
-[![Ruff](https://img.shields.io/badge/Lint_and_format_with-Ruff-%23D7FF64?style=flat&logo=ruff&logoColor=white)](https://github.com/astral-sh/ruff)
-[![VitePress](https://img.shields.io/badge/Generate_with-VitePress-5C73E7?logo=vitepress&logoColor=white)](https://vitepress.dev/)
 [![MIT](https://img.shields.io/badge/License-MIT-green)](/LICENSE)
 
 ***「あじよし今日やってんのかな…」***
 
-**See: <https://asumo-1xts.github.io/AjiyoSee/>**
+**See: <https://ajiyosee.vercel.app/>**
 
 </div>
