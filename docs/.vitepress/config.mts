@@ -27,11 +27,19 @@ export default defineConfig({
     ['meta', { property: 'twitter:card', content: 'summary' }],
     ['meta', { property: 'twitter:site', content: '@ajiyoshiver2' }],
     [
-      'meta',
+      'script',
       {
-        name: 'google-site-verification',
-        content: 'dCBfkFCsmVT1nO1EyrXm82-YmZYq7kCApA6fu7WYJEs'
+        async: 'true',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-05M6QMCGN8'
       }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-05M6QMCGN8');`
     ]
   ]
 })
