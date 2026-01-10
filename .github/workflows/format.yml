@@ -1,15 +1,16 @@
 name: Format code
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - closed
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
+  workflow_dispatch:
 
 jobs:
   prettier-format:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -42,7 +43,7 @@ jobs:
     needs: prettier-format
     runs-on: ubuntu-latest
     steps:
-      - name: Check out main branch
+      - name: Check out repository
         uses: actions/checkout@v5
         with:
           ref: main
@@ -76,8 +77,8 @@ jobs:
       - name: Run clang-format
         run: |
           sudo apt install clang-format -y
-          clang-format -i -style=file:".clang-format" */src/**/*.h  
-          clang-format -i -style=file:".clang-format" */src/**/*.c
+          find ESP-WROOM-02/src \( -name '*.hpp' -o -name '*.cpp' \) \
+          | xargs -r clang-format -i -style=file:.clang-format
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
