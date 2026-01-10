@@ -63,7 +63,6 @@ void setup(void) {
   }
 
   ConnectWiFi();
-  delay(1500);
 }
 
 /**

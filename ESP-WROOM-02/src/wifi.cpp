@@ -30,6 +30,7 @@ void ConnectWiFi(void) {
   Serial.printf("IP address: %s\n", WiFi.localIP().toString().c_str());
   Serial.printf("MAC address: %s\n", WiFi.macAddress().c_str());
   PrintLCD("Wi-Fi...", "Wi-Fi OK");
+  delay(500);
 }
 
 /**
