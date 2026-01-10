@@ -33,10 +33,10 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          commit_message: "style: Format code with Prettier"
-          commit_user_name: "gh-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_author: "gh-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          commit_message: 'style: Format code with Prettier'
+          commit_user_name: 'gh-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
 
   ruff-format:
     needs: prettier-format
@@ -51,14 +51,14 @@ jobs:
       - name: Run Ruff Formatter
         uses: astral-sh/ruff-action@v3
         with:
-          version: ">=0.14.0"
-          args: "format"
-          src: "./script"
+          version: '>=0.14.0'
+          args: 'format'
+          src: './script'
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          commit_message: "style: Format code with Ruff"
-          commit_user_name: "gh-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_author: "gh-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          commit_message: 'style: Format code with Ruff'
+          commit_user_name: 'gh-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
