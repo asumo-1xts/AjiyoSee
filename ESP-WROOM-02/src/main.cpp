@@ -22,11 +22,11 @@ std::vector<uint8_t> Str2Utf8(const std::string &str) {
 }
 
 /**
- * @fn void handleLED(uint8_t *vals)
+ * @fn void HandleLED(uint8_t *vals)
  * @brief LEDを選んで光らせる関数
  * @param vals LEDの状態を格納した配列
  */
-void handleLED(std::array<uint8_t, 4> vals) {
+void HandleLED(std::array<uint8_t, 4> vals) {
   digitalWrite(LED_GREEN, vals[0]);
   digitalWrite(LED_RED, vals[1]);
   digitalWrite(LED_WHITE, vals[2]);
@@ -45,21 +45,21 @@ void setup(void) {
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_WHITE, OUTPUT);
   pinMode(LED_YELLOW, OUTPUT);
-  handleLED({LOW, LOW, LOW, LOW});
+  HandleLED({LOW, LOW, LOW, LOW});
 
   Serial.begin(115200);
   SetupLCD();
 
   PrintLCD(project_name, project_ver);
   for (i = 0; i < 2; i++) {
-    handleLED({HIGH, LOW, LOW, LOW});
-    handleLED({HIGH, HIGH, LOW, LOW});
-    handleLED({HIGH, HIGH, HIGH, LOW});
-    handleLED({HIGH, HIGH, HIGH, HIGH});
-    handleLED({HIGH, HIGH, HIGH, LOW});
-    handleLED({HIGH, HIGH, LOW, LOW});
-    handleLED({HIGH, LOW, LOW, LOW});
-    handleLED({LOW, LOW, LOW, LOW});
+    HandleLED({HIGH, LOW, LOW, LOW});
+    HandleLED({HIGH, HIGH, LOW, LOW});
+    HandleLED({HIGH, HIGH, HIGH, LOW});
+    HandleLED({HIGH, HIGH, HIGH, HIGH});
+    HandleLED({HIGH, HIGH, HIGH, LOW});
+    HandleLED({HIGH, HIGH, LOW, LOW});
+    HandleLED({HIGH, LOW, LOW, LOW});
+    HandleLED({LOW, LOW, LOW, LOW});
   }
 
   ConnectWiFi();
@@ -79,22 +79,22 @@ void loop(void) {
 
   switch (result) {
     case 0:  // OPEN
-      handleLED({HIGH, LOW, LOW, LOW});
+      HandleLED({HIGH, LOW, LOW, LOW});
       break;
     case 1:  // CLOSE
-      handleLED({LOW, HIGH, LOW, LOW});
+      HandleLED({LOW, HIGH, LOW, LOW});
       break;
     case 2:  // SOLD OUT
-      handleLED({HIGH, HIGH, HIGH, LOW});
+      HandleLED({HIGH, HIGH, HIGH, LOW});
       break;
     case 3:  // UNKNOWN
-      handleLED({LOW, LOW, HIGH, LOW});
+      HandleLED({LOW, LOW, HIGH, LOW});
       break;
     case 4:  // No X-API
-      handleLED({LOW, LOW, LOW, HIGH});
+      HandleLED({LOW, LOW, LOW, HIGH});
       break;
     default:  // Error
-      handleLED({LOW, LOW, LOW, LOW});
+      HandleLED({LOW, LOW, LOW, LOW});
       break;
   }
 
