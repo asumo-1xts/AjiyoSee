@@ -73,7 +73,7 @@ jobs:
         run: |
           sudo apt install clang-format -y
           find ESP-WROOM-02/src \( -name '*.hpp' -o -name '*.cpp' \) \
-          | xargs -r clang-format -i -style=file:.clang-format
+          | xargs -r clang-format -i -style=file:ESP-WROOM-02/src/.clang-format
       - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
