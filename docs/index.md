@@ -15,3 +15,7 @@ hero:
       text: What's this?
       link: /about
 ---
+
+## [New] ハードウェア版が登場
+
+<iframe width="336" height="336" src="https://www.youtube.com/embed/07ixiWCCTPQ" title="AjiyoSee with ESP-WROOM-02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
