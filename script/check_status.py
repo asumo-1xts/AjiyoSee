@@ -24,7 +24,7 @@ def main():
             reader = list(csv.reader(f))
             if len(reader) == 1:  # ヘッダーしか無い場合
                 print("[check_status.py] 今日はポストがありません。")
-                result = 1  # お休みとみなす
+                result = 3  # UNKNOWN扱いとする
             else:
                 header = reader[0]
                 text_idx = header.index("text")
