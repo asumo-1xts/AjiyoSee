@@ -31,4 +31,6 @@ Time GetTime(void);
 
 std::vector<uint8_t> Str2Utf8(const std::string &str);
 
+#define INTERVAL_WAIT() delay(36000)
+
 #endif

@@ -98,5 +98,5 @@ void loop(void) {
       break;
   }
 
-  delay(3600000);  // 1時間ごとに更新
+  INTERVAL_WAIT();
 }
