@@ -2,5 +2,4 @@
   "clang-format.assumeFilename": "src/.clang-format",
   "clang-format.fallbackStyle": "Google",
   "editor.defaultFormatter": "xaver.clang-format",
-  "editor.formatOnSave": true
 }
