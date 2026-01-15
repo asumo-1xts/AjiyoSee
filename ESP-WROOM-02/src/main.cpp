@@ -13,7 +13,7 @@ char hhmm[11];
  * @param str 変換する文字列
  * @return 変換後のASCII配列
  */
-std::vector<uint8_t> Str2Utf8(const std::string &str) {
+std::vector<uint8_t> Str2Utf8(const std::string& str) {
   std::vector<uint8_t> ans_utf8;
   for (char c : str) {
     ans_utf8.push_back(static_cast<uint8_t>(c));

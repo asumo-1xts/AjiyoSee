@@ -9,7 +9,7 @@
  * @param len コマンドまたはデータの配列長
  * @param row 行選択（true: 1行目、false: 2行目）
  */
-void WriteLCD(uint8_t *cmd, size_t len, bool row) {
+void WriteLCD(uint8_t* cmd, size_t len, bool row) {
   size_t i;
   for (i = 0; i < len; i++) {
     Wire.beginTransmission(ADDR);

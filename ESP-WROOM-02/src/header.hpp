@@ -13,7 +13,7 @@
 #define LED_YELLOW 2
 
 void SetupLCD(void);
-void WriteLCD(uint8_t *, size_t, bool);
+void WriteLCD(uint8_t*, size_t, bool);
 void PrintLCD(std::string, std::string);
 
 struct Time {
@@ -29,7 +29,7 @@ void ConnectWiFi(void);
 uint8_t GetResult(void);
 Time GetTime(void);
 
-std::vector<uint8_t> Str2Utf8(const std::string &str);
+std::vector<uint8_t> Str2Utf8(const std::string& str);
 
 #define INTERVAL_WAIT() delay(36000)
 
