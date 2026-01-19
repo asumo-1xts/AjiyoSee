@@ -1,0 +1,35 @@
+name: Lint with Clang-Tidy
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ESP-WROOM-02/src/**'
+      - '.github/workflows/cpp-lint.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  cpp-lint:
+    name: Required processes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: cpp-linter/cpp-linter-action@v2.16.7
+        id: linter
+        continue-on-error: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo-root: './ESP-WROOM-02/src'
+          files-changed-only: true
+          thread-comments: update
+          tidy-review: true
+      - name: Fail if linting errors found
+        if: steps.linter.outputs.clang-tidy-checks-failed > 0
+        run: exit 1
