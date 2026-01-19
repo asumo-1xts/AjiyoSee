@@ -1,4 +1,4 @@
-name: Ruff Lint
+name: Lint with Ruff
 
 on:
   pull_request:
