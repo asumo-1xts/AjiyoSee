@@ -1,4 +1,4 @@
-name: Format code
+name: Format
 
 on:
   push:
@@ -11,23 +11,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  prettier-format:
+  prettier:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - uses: actions/setup-node@v6
       - name: Run Prettier
         run: |
           npm ci
           npm run format
-      - name: Commit formatted code
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+      - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
           commit_message: 'style: Format code with Prettier'
@@ -35,24 +32,21 @@ jobs:
           commit_user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
 
-  ruff-format:
-    needs: prettier-format
+  ruff:
+    needs: prettier
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - name: Run Ruff Formatter
-        uses: astral-sh/ruff-action@v3
+      - uses: astral-sh/ruff-action@v3
         with:
           version: '>=0.14.0'
           args: 'format'
           src: './script'
-      - name: Commit formatted code
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+      - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
           commit_message: 'style: Format code with Ruff'
@@ -61,22 +55,19 @@ jobs:
           commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
 
   clang-format:
-    needs: ruff-format
+    needs: ruff
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - name: Run clang-format
-        run: |
+      - run: |
           sudo apt install clang-format -y
           find ESP-WROOM-02/src \( -name '*.hpp' -o -name '*.cpp' \) \
           | xargs -r clang-format -i -style=file:ESP-WROOM-02/src/.clang-format
-      - name: Commit formatted code
-        uses: stefanzweifel/git-auto-commit-action@v7.0.0
+      - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
           commit_message: 'style[ESP-WROOM-02]: Format code with clang-format'
