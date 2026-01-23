@@ -5,7 +5,7 @@ layout: home
 hero:
   name: あじよしの営業状況
   text: [❓ UNKNOWN]
-  tagline: 2026-01-23 16:54 JST 更新
+  tagline: Not in Service
   image: screen.webp
   actions:
     - theme: brand
@@ -15,6 +15,10 @@ hero:
       text: What's this?
       link: /about
 ---
+
+# お知らせ
+
+2026年1月6日より公式Xの更新が途絶えていることを受けて、現在サービスを停止しております。
 
 ## <Badge type="warning" text="New" /> ハードウェア版が登場
 
