@@ -5,7 +5,7 @@ layout: home
 hero:
   name: あじよしの営業状況
   text: [❓ UNKNOWN]
-  tagline: 2026-01-21 16:57 JST 更新
+  tagline: 2026-01-23 16:54 JST 更新
   image: screen.webp
   actions:
     - theme: brand
