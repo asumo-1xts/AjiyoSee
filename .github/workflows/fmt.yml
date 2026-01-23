@@ -5,35 +5,13 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**/*.md'
-      - '**/*.txt'
-      - '**/*.csv'
+      - "**/*.md"
+      - "**/*.txt"
+      - "**/*.csv"
   workflow_dispatch:
 
 jobs:
-  prettier:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: main
-          fetch-depth: 0
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-      - uses: actions/setup-node@v6
-      - name: Run Prettier
-        run: |
-          npm ci
-          npm run format
-      - uses: stefanzweifel/git-auto-commit-action@v7.0.0
-        with:
-          branch: main
-          commit_message: 'style: Format code with Prettier'
-          commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
-
   ruff:
-    needs: prettier
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -43,16 +21,16 @@ jobs:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
       - uses: astral-sh/ruff-action@v3
         with:
-          version: '>=0.14.0'
-          args: 'format'
-          src: './script'
+          version: ">=0.14.0"
+          args: "format"
+          src: "./script"
       - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          commit_message: 'style: Format code with Ruff'
-          commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+          commit_message: "style: Format code with Ruff"
+          commit_user_name: "gh-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "gh-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
   clang-format:
     needs: ruff
@@ -70,7 +48,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v7.0.0
         with:
           branch: main
-          commit_message: 'style[ESP-WROOM-02]: Format code with clang-format'
-          commit_user_name: 'gh-actions[bot]'
-          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_author: 'gh-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+          commit_message: "style[ESP-WROOM-02]: Format code with clang-format"
+          commit_user_name: "gh-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "gh-actions[bot] <github-actions[bot]@users.noreply.github.com>"

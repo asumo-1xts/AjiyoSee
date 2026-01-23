@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "prettier": "^3.8.0",
-    "vitepress": "^2.0.0-alpha.15"
+    "vitepress": "^2.0.0-alpha.15",
+    "oxfmt": "^0.26.0"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "format": "npx prettier --config .vscode/.prettierrc.json --write .github/workflows .vscode docs/.vitepress/config.mts *.json"
+    "format": "npx oxfmt --write"
   }
 }

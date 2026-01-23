@@ -1,6 +1,6 @@
 {
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -10,12 +10,8 @@
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "editor.formatOnSave": true,
-  "extensions.ignoreRecommendations": false,
-  "prettier.configPath": ".vscode/.prettierrc.json",
-  "prettier.prettierPath": "node_modules/prettier",
-  "python.analysis.typeCheckingMode": "standard",
-  "ruff.configuration": "pyproject.toml"
+  "extensions.ignoreRecommendations": false
 }
