@@ -6,7 +6,7 @@ AjiyoSee [![MIT](https://img.shields.io/badge/License-MIT-green)](/LICENSE)
 
 <div align="center">
 
-***「あじよし今日やってんのかな…」***
+**_「あじよし今日やってんのかな…」_**
 
 **See: <https://ajiyosee.vercel.app/>**
 

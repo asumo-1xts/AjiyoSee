@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'script/**'
-      - '.github/workflows/lint.yml'
+      - "script/**"
+      - ".github/workflows/lint.yml"
 
 jobs:
   run-dummy:
