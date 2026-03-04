@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: あじよしの営業状況
-  text: [❓ UNKNOWN]
+  text: [❌ CLOSE]
   tagline: Not in Service
   image: screen.webp
   actions:
@@ -18,7 +18,7 @@ hero:
 
 # お知らせ
 
-2026年1月6日より公式Xの更新が途絶えていることを受けて、現在サービスを停止しております。
+公式Xの「しばらくお休み」という[声明](https://x.com/ajiyoshiver2/status/2016745356621730122)を受け、現在サービスを停止しています。
 
 ## <Badge type="warning" text="New" /> ハードウェア版が登場
 
